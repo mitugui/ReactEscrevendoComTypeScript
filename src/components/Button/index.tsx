@@ -1,8 +1,9 @@
 import React from "react";
+import './style.scss'
 
 const Button = () => {
     return (
-        <button>
+        <button className="button">
             Botão
         </button>
     )
