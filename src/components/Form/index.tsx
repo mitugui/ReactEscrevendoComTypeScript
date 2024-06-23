@@ -31,7 +31,9 @@ const Form = () => {
                     required
                 />
             </div>
-            <Button />
+            <Button
+                text="Adicionar"
+            />
         </form>
     )
 }

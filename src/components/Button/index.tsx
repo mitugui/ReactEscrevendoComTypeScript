@@ -1,10 +1,14 @@
 import React from "react";
 import style from './button.module.scss'
 
-const Button = () => {
+interface ButtonProps {
+    text: string
+}
+
+const Button = ({ text }: ButtonProps) => {
     return (
         <button className={style.button}>
-            Botão
+            {text}
         </button>
     )
 }
