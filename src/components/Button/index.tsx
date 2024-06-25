@@ -3,11 +3,12 @@ import style from './button.module.scss';
 
 interface ButtonProps {
     text: string
+    type?: "button" | "submit"
 }
 
-const Button = ({ text }: ButtonProps) => {
+const Button = ({ text, type="button" }: ButtonProps) => {
     return (
-        <button className={style.button}>
+        <button className={style.button} type={type}>
             {text}
         </button>
     )

@@ -1,19 +1,15 @@
-import React, { useState } from "react";
 import style from './list.module.scss';
 import Item from "./Item";
 import iTask from "../../interfaces/iTask";
 
-const List = () => {
-    const [tasks, setTasks] = useState<iTask[]>([])
+interface ListProps {
+    tasks: iTask[]
+}
 
-    const addTask = () => {
-        const newTask: iTask = { name: "", time: "" }
-        setTasks([...tasks, newTask])
-    }
-
+const List = ({ tasks }: ListProps) => {
     return (
         <aside className={style.tasksList}>
-            <h2 onClick={addTask}>Estudos do dia</h2>
+            <h2>Estudos do dia</h2>
             <ul>
                 {tasks.map((task, index) => (
                     <Item

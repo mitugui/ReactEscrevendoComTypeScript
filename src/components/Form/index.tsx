@@ -1,18 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Button";
 import style from './form.module.scss';
+import iTask from "../../interfaces/iTask";
 
-const Form = () => {
+interface FormProps {
+    setTasks: React.Dispatch<React.SetStateAction<iTask[]>>
+}
+
+const Form = ({ setTasks }: FormProps) => {
+    const [task, setTask] = useState("")
+    const [time, setTime] = useState("00:00:00")
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        const newTask: iTask = {
+            name: task,
+            time: time
+        }
+
+        setTasks((previousTasks) => [...previousTasks, newTask])
+
+        setTask("")
+        setTime("00:00:00")
+    }
+
     return (
-        <form className={style.newTask}>
+        <form className={style.newTask} onSubmit={handleSubmit}>
             <div className={style.inputContainer}>
                 <label htmlFor="task">
                     Adicione um novo estudo
                 </label>
-                <input 
+                <input
                     type="text"
                     name="task"
                     id="task"
+                    value={task}
+                    onChange={(e) => setTask(e.target.value)}
                     placeholder="O que você quer estudar?"
                     required
                 />
@@ -21,17 +45,20 @@ const Form = () => {
                 <label htmlFor="time">
                     Tempo
                 </label>
-                <input 
+                <input
                     type="time"
                     step="1"
                     name="time"
                     id="time"
+                    value={time}
+                    onChange={(event) => setTime(event.target.value)}
                     min="00:00:00"
                     max="01:30:00"
                     required
                 />
             </div>
             <Button
+                type="submit"
                 text="Adicionar"
             />
         </form>
