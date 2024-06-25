@@ -1,22 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import style from './list.module.scss';
 import Item from "./Item";
+import iTask from "../../interfaces/iTask";
 
 const List = () => {
-    const tasks = [{
-        name: "React",
-        time: "02:00:00"
-    }, {
-        name: "JavaScript",
-        time: "01:00:00"
-    }, {
-        name: "TypeScript",
-        time: "03:00:00"
-    }]
+    const [tasks, setTasks] = useState<iTask[]>([])
+
+    const addTask = () => {
+        const newTask: iTask = { name: "", time: "" }
+        setTasks([...tasks, newTask])
+    }
 
     return (
         <aside className={style.tasksList}>
-            <h2>Estudos do dia</h2>
+            <h2 onClick={addTask}>Estudos do dia</h2>
             <ul>
                 {tasks.map((task, index) => (
                     <Item
