@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Button from "../Button";
 import style from './form.module.scss';
-import iTask from "../../interfaces/iTask";
+import ITask from "../../interfaces/ITask";
 
 interface FormProps {
-    setTasks: React.Dispatch<React.SetStateAction<iTask[]>>
+    setTasks: React.Dispatch<React.SetStateAction<ITask[]>>
 }
 
 const Form = ({ setTasks }: FormProps) => {
@@ -14,7 +14,7 @@ const Form = ({ setTasks }: FormProps) => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        const newTask: iTask = {
+        const newTask: ITask = {
             name: task,
             time: time
         }

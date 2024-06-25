@@ -1,9 +1,9 @@
 import style from './list.module.scss';
 import Item from "./Item";
-import iTask from "../../interfaces/iTask";
+import ITask from "../../interfaces/ITask";
 
 interface ListProps {
-    tasks: iTask[]
+    tasks: ITask[]
 }
 
 const List = ({ tasks }: ListProps) => {

@@ -3,10 +3,10 @@ import Form from '../../components/Form';
 import List from '../../components/List';
 import Timer from '../../components/Timer';
 import style from './app.module.scss';
-import iTask from '../../interfaces/iTask';
+import ITask from '../../interfaces/ITask';
 
 const App = () => {
-  const [tasks, setTasks] = useState<iTask[]>([])
+  const [tasks, setTasks] = useState<ITask[]>([])
 
   return (
     <div className={style.AppStyle}>

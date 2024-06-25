@@ -1,4 +1,4 @@
-export default interface iTask {
+export default interface ITask {
     name: string,
     time: string
 }
