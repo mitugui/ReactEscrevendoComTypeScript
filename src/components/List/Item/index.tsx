@@ -1,11 +1,8 @@
 import style from '../list.module.scss'
+import ITask from '../../../interfaces/ITask'
 
-interface ItemProps {
-    name: string,
-    time: string
-}
-
-const Item = ({ name, time }: ItemProps) => {
+const Item = ({ name, time, completed, selected, id }: ITask) => {
+    // console.log({ name, time, completed, selected, id })
     return (
         <li className={style.item}>
             <h3> {name} </h3>
