@@ -6,10 +6,11 @@ import style from './timer.module.scss';
 import { timetoSeconds } from "../../common/utils/time";
 
 interface TimerProps {
-    selected: ITask | undefined
+    selected: ITask | undefined,
+    finishTask: () => void
 }
 
-const Timer = ({ selected }: TimerProps) => {
+const Timer = ({ selected, finishTask }: TimerProps) => {
     const [time, setTime] = useState<number>()
 
     useEffect(() => {
@@ -24,6 +25,7 @@ const Timer = ({ selected }: TimerProps) => {
                 setTime(counter - 1)
                 return countDown(counter - 1)
             }
+            finishTask()
         }, 1000)
     }
 

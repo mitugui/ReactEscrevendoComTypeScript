@@ -15,8 +15,8 @@ const Item = (
         selectTask
     }: ItemProps) => {
     return (
-        <li className={`${style.item} ${selected ? style.selectedItem : ""}`}
-            onClick={() => selectTask({
+        <li className={`${style.item} ${selected ? style.selectedItem : ""} ${completed ? style.completedItem : ""}`}
+            onClick={() => !completed && selectTask({
                 name,
                 time,
                 completed,
@@ -25,6 +25,7 @@ const Item = (
             })}>
             <h3> {name} </h3>
             <span> {time}</span>
+            {completed && <span className={style.concluded} aria-label="tarefa completada"></span>}
         </li>
     )
 }
