@@ -7,10 +7,10 @@ import ITask from '../../interfaces/ITask';
 
 const App = () => {
   const [tasks, setTasks] = useState<ITask[]>([])
-  // const [selected, setSelected] = useState<ITask>()
+  const [selected, setSelected] = useState<ITask>()
 
   const selectTask = (selectedTask: ITask) => {
-    // setSelected(selectedTask)
+    setSelected(selectedTask)
     setTasks(previousTasks => previousTasks.map(task => ({
       ...task,
       selected: task.id === selectedTask.id ? true : false
@@ -24,7 +24,7 @@ const App = () => {
         tasks={tasks}
         selectTask={selectTask}
       />
-      <Timer />
+      <Timer selected={selected}/>
     </div>
   );
 }
