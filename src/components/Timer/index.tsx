@@ -18,6 +18,15 @@ const Timer = ({ selected }: TimerProps) => {
         }
     }, [selected])
 
+    const countDown = (counter: number = 0) => {
+        setTimeout(() => {
+            if (counter > 0) {
+                setTime(counter - 1)
+                return countDown(counter - 1)
+            }
+        }, 1000)
+    }
+
     return (
         <div className={style.timer}>
             <p className={style.title}>Escolha um card e inicie o cronômetro</p>
@@ -25,6 +34,7 @@ const Timer = ({ selected }: TimerProps) => {
                 <Clock time={time} />
             </div>
             <Button
+                onClick={() => countDown(time)}
                 text="Começar!"
             />
         </div>
